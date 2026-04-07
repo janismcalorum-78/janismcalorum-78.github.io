@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Janis McAlorum — Incident Management Professional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--ink:#1a1814;--warm:#f5f0e8;--cream:#faf8f4;--rule:#c8bfad;--accent:#8b5c3e;--muted:#7a7168;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+    html{scroll-behavior:smooth}
+    body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.7;font-weight:300;-webkit-font-smoothing:antialiased}
+    body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
+    .page-wrap{max-width:1200px;margin:0 auto;padding:0 clamp(24px,5vw,80px)}
+    header{padding:64px 0 0;border-bottom:1px solid var(--rule)}
+    .header-inner{display:grid;grid-template-columns:1fr auto;align-items:end;gap:32px;padding-bottom:48px}
+    .eyebrow{font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+    .hero-name{font-family:var(--serif);font-size:clamp(52px,8vw,108px);font-weight:300;line-height:.92;letter-spacing:-.02em;color:var(--ink)}
+    .hero-name em{font-style:italic;color:var(--accent)}
+    .hero-title{font-family:var(--serif);font-size:clamp(16px,2.2vw,22px);font-weight:300;font-style:italic;color:var(--muted);margin-top:20px;max-width:520px;line-height:1.5}
+    .header-meta{text-align:right;font-size:11.5px;color:var(--muted);line-height:2;letter-spacing:.04em}
+    .header-meta a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
+    .header-meta a:hover{border-color:var(--accent)}
+    nav{display:flex;gap:32px;padding:18px 0;border-bottom:1px solid var(--rule);overflow-x:auto;scrollbar-width:none}
+    nav::-webkit-scrollbar{display:none}
+    nav a{font-size:10.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--muted);white-space:nowrap;transition:color .2s}
+    nav a:hover{color:var(--ink)}
+    section{padding:80px 0;border-bottom:1px solid var(--rule)}
+    .section-label{font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:48px;display:flex;align-items:center;gap:16px}
+    .section-label::after{content:'';flex:1;height:1px;background:var(--rule);max-width:120px}
+    .summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+    .summary-pull{font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:300;line-height:1.35;color:var(--ink)}
+    .summary-pull strong{font-weight:600;font-style:italic}
+    .summary-body{font-size:14.5px;color:var(--muted);line-height:1.85}
+    .tag-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+    .tag{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--rule);color:var(--muted);background:transparent;border-radius:1px;transition:all .2s;cursor:default}
+    .tag:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+    .timeline-item{display:grid;grid-template-columns:220px 1fr;gap:48px;padding:40px 0;border-top:1px solid var(--rule)}
+    .timeline-item:last-child{border-bottom:1px solid var(--rule)}
+    .tl-date{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+    .tl-company{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--ink);line-height:1.2}
+    .tl-sub{font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:.04em}
+    .tl-role{font-family:var(--serif);font-size:clamp(22px,2.5vw,28px);font-weight:400;font-style:italic;color:var(--ink);margin-bottom:16px;line-height:1.2}
+    .tl-body{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px}
+    .tl-achievements{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .tl-achievements li{font-size:13.5px;color:var(--ink);padding-left:20px;position:relative;line-height:1.6}
+    .tl-achievements li::before{content:'—';position:absolute;left:0;color:var(--accent);font-weight:400}
+    .prev-roles{margin-top:40px;border-top:1px solid var(--rule);padding-top:32px}
+    .prev-label{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+    .prev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+    .prev-card{padding:20px;background:var(--warm);border-radius:2px}
+    .prev-card .role{font-weight:500;font-size:13px}
+    .prev-card .co{font-size:12px;color:var(--muted);margin-top:3px}
+    .prev-card .dates{font-size:11px;color:var(--rule);margin-top:6px;letter-spacing:.06em}
+    .ach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+    .ach-card{background:var(--cream);padding:36px 28px;transition:background .25s}
+    .ach-card:hover{background:var(--warm)}
+    .ach-stat{font-family:var(--serif);font-size:clamp(42px,5vw,64px);font-weight:300;color:var(--accent);line-height:1;margin-bottom:12px}
+    .ach-label{font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+    .ach-desc{font-size:13.5px;color:var(--ink);line-height:1.6}
+    .comp-layout{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px}
+    .comp-group h3{font-family:var(--serif);font-size:20px;font-weight:400;font-style:italic;color:var(--ink);margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+    .comp-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .comp-list li{font-size:13.5px;color:var(--muted);padding-left:14px;position:relative;line-height:1.5}
+    .comp-list li::before{content:'·';position:absolute;left:0;color:var(--accent);font-size:18px;line-height:1.1}
+    .edu-row{display:grid;grid-template-columns:220px 1fr;gap:48px;padding:32px 0;border-top:1px solid var(--rule)}
+    .edu-row:last-child{border-bottom:1px solid var(--rule)}
+    .edu-date{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+    .edu-degree{font-family:var(--serif);font-size:22px;font-weight:400;font-style:italic;color:var(--ink);margin-bottom:6px}
+    .edu-note{font-size:13.5px;color:var(--muted);line-height:1.7}
+    footer{padding:72px 0 56px}
+    .footer-inner{display:grid;grid-template-columns:1fr auto;align-items:end;gap:48px}
+    .footer-cta{font-family:var(--serif);font-size:clamp(28px,4vw,52px);font-weight:300;line-height:1.2;color:var(--ink);max-width:600px}
+    .footer-cta em{font-style:italic;color:var(--accent)}
+    .footer-links{display:flex;flex-direction:column;gap:12px;text-align:right}
+    .footer-links a{font-size:13px;color:var(--muted);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+    .footer-links a:hover{color:var(--accent)}
+    .footer-rule{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center}
+    .footer-rule span{font-size:11px;color:var(--rule);letter-spacing:.1em}
+    @media(max-width:860px){.header-inner{grid-template-columns:1fr}.header-meta{text-align:left}.summary-grid{grid-template-columns:1fr;gap:36px}.timeline-item{grid-template-columns:1fr;gap:12px}.ach-grid{grid-template-columns:1fr 1fr}.comp-layout{grid-template-columns:1fr;gap:36px}.edu-row{grid-template-columns:1fr;gap:8px}.footer-inner{grid-template-columns:1fr}.footer-links{text-align:left}}
+    @media(max-width:560px){.ach-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  <header>
+    <div class="header-inner">
+      <div>
+        <p class="eyebrow">Senior Professional &middot; United Kingdom</p>
+        <h1 class="hero-name">Janis<br/><em>McAlorum</em></h1>
+        <p class="hero-title">Corporate Incident Management &amp; Quality Assurance &mdash; seven years shaping operational excellence in regulated financial services.</p>
+      </div>
+      <div class="header-meta">
+        <a href="mailto:janismcalorum@yahoo.com">janismcalorum@yahoo.com</a><br/>
+        <a href="tel:07307818195">07307 818 195</a><br/>
+        <a href="https://linkedin.com/in/janismcalorum" target="_blank" rel="noopener">linkedin.com/in/janismcalorum</a>
+      </div>
+    </div>
+    <nav>
+      <a href="#summary">Profile</a>
+      <a href="#experience">Experience</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#competencies">Competencies</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <section id="summary">
+    <p class="section-label">Professional Profile</p>
+    <div class="summary-grid">
+      <div class="summary-pull">An operational leader who <strong>brings order to complexity</strong> &mdash; turning regulatory pressure into process clarity.</div>
+      <div>
+        <p class="summary-body">Accomplished corporate incident management and quality assurance professional with seven years of progressive experience in regulated financial services. Demonstrated expertise in leading regulatory compliance initiatives, managing complex incident resolution processes, and driving operational excellence across diverse stakeholder groups. Proven track record of maintaining composure under pressure while delivering actionable insights and fostering collaborative relationships.</p>
+        <div class="tag-list">
+          <span class="tag">Incident Management</span><span class="tag">Quality Assurance</span><span class="tag">Regulatory Compliance</span><span class="tag">Stakeholder Engagement</span><span class="tag">Root Cause Analysis</span><span class="tag">Process Optimisation</span><span class="tag">Risk Management</span><span class="tag">Team Development</span><span class="tag">Audit Excellence</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="experience">
+    <p class="section-label">Career</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="tl-meta">
+          <p class="tl-date">Dec 2024 &mdash; Present</p>
+          <p class="tl-company">Diligenta</p>
+          <p class="tl-sub">M&amp;G Account</p>
+        </div>
+        <div>
+          <p class="tl-role">Corporate Incident Manager</p>
+          <p class="tl-body">Executive leadership for comprehensive incident management operations with focus on regulatory compliance and operational excellence for a major financial services provider.</p>
+          <ul class="tl-achievements">
+            <li>Directs multi-stakeholder incident resolution calls spanning technology, compliance, and client teams &mdash; ensuring clear action plans and consistent progress in high-pressure environments.</li>
+            <li>Reduced event closure times by <strong>30%</strong> through streamlined processes and enhanced stakeholder coordination frameworks.</li>
+            <li>Oversees complete incident lifecycle: triage, escalation, action tracking, and follow-up in alignment with DIMS guidance and regulatory requirements.</li>
+            <li>Investigates regulatory breaches and supports comprehensive reporting across BANCS and related technology platforms.</li>
+            <li>Facilitates root cause analysis discussions, translating lessons learned into actionable improvements across organisational functions.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-meta">
+          <p class="tl-date">Dec 2022 &mdash; Dec 2024</p>
+          <p class="tl-company">Diligenta</p>
+          <p class="tl-sub">M&amp;G Account</p>
+        </div>
+        <div>
+          <p class="tl-role">Quality Assurance Auditor</p>
+          <p class="tl-body">Comprehensive quality assurance oversight across M&amp;G's full product portfolio, maintaining regulatory compliance and elevating operational standards.</p>
+          <ul class="tl-achievements">
+            <li>Conducted thorough audits across pensions, bonds, and annuities &mdash; ensuring adherence to quality and regulatory compliance frameworks.</li>
+            <li>Contributed to a <strong>15% increase</strong> in QA scores through systematic process improvements and team development initiatives.</li>
+            <li>Executed internal audit-style reviews delivering clear findings, evidence documentation, and management information to senior stakeholders.</li>
+            <li>Provided coaching and mentorship on product knowledge, process optimisation, and quality expectations to new starters and complaint handlers.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-meta">
+          <p class="tl-date">Oct 2018 &mdash; Dec 2022</p>
+          <p class="tl-company">Diligenta</p>
+          <p class="tl-sub">M&amp;G Account</p>
+        </div>
+        <div>
+          <p class="tl-role">Complaints Handler</p>
+          <p class="tl-body">Managed complex service complaints across diverse financial products with meticulous attention to detail and full regulatory compliance.</p>
+          <ul class="tl-achievements">
+            <li>Successfully resolved over <strong>1,400 complaints</strong> across pensions, bonds, and annuities.</li>
+            <li>Handled sensitive CEO and Financial Ombudsman Service complaints, applying sound judgement to achieve positive outcomes.</li>
+            <li>Supported seamless transition of annuity complaints to Rothesay Life, contributing to process development and knowledge transfer.</li>
+            <li>Led automation of fund reporting through intranet solutions, reducing manual workload and improving reporting accuracy.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="prev-roles">
+      <p class="prev-label">Earlier Career &middot; 2011&ndash;2018</p>
+      <div class="prev-grid">
+        <div class="prev-card"><p class="role">Complaint Handler</p><p class="co">Prudential UK</p><p class="dates">Mar 2018 &ndash; Oct 2018</p></div>
+        <div class="prev-card"><p class="role">Customer Service Advisor</p><p class="co">Prudential UK</p><p class="dates">Feb 2017 &ndash; Mar 2018</p></div>
+        <div class="prev-card"><p class="role">Complaint Handler</p><p class="co">Three UK</p><p class="dates">2015 &ndash; 2017</p></div>
+        <div class="prev-card"><p class="role">Customer Service Advisor</p><p class="co">British Gas</p><p class="dates">2011 &ndash; 2015</p></div>
+      </div>
+    </div>
+  </section>
+  <section id="achievements">
+    <p class="section-label">Impact &amp; Achievements</p>
+    <div class="ach-grid">
+      <div class="ach-card"><p class="ach-stat">30%</p><p class="ach-label">Faster Incident Closure</p><p class="ach-desc">Reduced event closure times through enhanced stakeholder coordination and streamlined workflows.</p></div>
+      <div class="ach-card"><p class="ach-stat">15%</p><p class="ach-label">QA Score Improvement</p><p class="ach-desc">Systematic process improvements and team development initiatives drove a significant quality uplift.</p></div>
+      <div class="ach-card"><p class="ach-stat">1,400+</p><p class="ach-label">Complaints Resolved</p><p class="ach-desc">Complex cases across pensions, bonds, and annuities handled with full regulatory compliance.</p></div>
+      <div class="ach-card"><p class="ach-stat">7+</p><p class="ach-label">Years in Financial Services</p><p class="ach-desc">Progressive experience across complaint handling, quality assurance, and incident management.</p></div>
+      <div class="ach-card"><p class="ach-stat">FOS</p><p class="ach-label">Ombudsman Liaison</p><p class="ach-desc">Built strong relationships with the Financial Ombudsman Service, facilitating resolution of sensitive cases.</p></div>
+      <div class="ach-card"><p class="ach-stat">&#8734;</p><p class="ach-label">Continuous Improvement</p><p class="ach-desc">Designed and delivered workshops, induction training, and process guidance &mdash; embedding operational excellence.</p></div>
+    </div>
+  </section>
+  <section id="competencies">
+    <p class="section-label">Competencies</p>
+    <div class="comp-layout">
+      <div class="comp-group">
+        <h3>Technical</h3>
+        <ul class="comp-list">
+          <li>Microsoft Office Suite (Advanced)</li>
+          <li>Microsoft Teams</li>
+          <li>BANCS Operational Systems</li>
+          <li>Management Information Reporting</li>
+          <li>Root Cause Analysis Methodologies</li>
+          <li>Intranet Automation Solutions</li>
+        </ul>
+      </div>
+      <div class="comp-group">
+        <h3>Leadership</h3>
+        <ul class="comp-list">
+          <li>Team Coaching &amp; Mentoring</li>
+          <li>Stakeholder Relationship Management</li>
+          <li>Cross-functional Team Leadership</li>
+          <li>Workshop Design &amp; Delivery</li>
+          <li>Process Improvement Initiatives</li>
+          <li>Induction &amp; Training Development</li>
+        </ul>
+      </div>
+      <div class="comp-group">
+        <h3>Regulatory</h3>
+        <ul class="comp-list">
+          <li>FCA Regulatory Requirements</li>
+          <li>Breach Investigation &amp; Reporting</li>
+          <li>Financial Ombudsman Service Liaison</li>
+          <li>Notifiable Events Management</li>
+          <li>DIMS Guidance &amp; Compliance</li>
+          <li>Quality Assurance Frameworks</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section id="education">
+    <p class="section-label">Education</p>
+    <div class="edu-row">
+      <p class="edu-date">2021 &mdash; Present</p>
+      <div>
+        <p class="edu-degree">Bachelor's Degree in Criminology</p>
+        <p class="edu-note">In progress. Developing analytical and investigative skills directly applicable to incident management, compliance investigation, and evidence-based decision-making.</p>
+      </div>
+    </div>
+    <div class="edu-row">
+      <p class="edu-date">Completed</p>
+      <div>
+        <p class="edu-degree">Scottish Highers</p>
+        <p class="edu-note">Strong academic foundation underpinning professional development and career progression in regulated financial services.</p>
+      </div>
+    </div>
+  </section>
+  <footer id="contact">
+    <div class="footer-inner">
+      <p class="footer-cta">Let's talk about what <em>operational excellence</em> looks like for your organisation.</p>
+      <div class="footer-links">
+        <a href="mailto:janismcalorum@yahoo.com">janismcalorum@yahoo.com</a>
+        <a href="tel:07307818195">07307 818 195</a>
+        <a href="https://linkedin.com/in/janismcalorum" target="_blank" rel="noopener">LinkedIn Profile</a>
+        <span style="color:var(--muted);font-size:13px;letter-spacing:.04em">United Kingdom</span>
+      </div>
+    </div>
+    <div class="footer-rule">
+      <span>Janis McAlorum &middot; Senior Corporate Incident Management Professional</span>
+      <span>&copy; 2025</span>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
